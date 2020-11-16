@@ -16,16 +16,24 @@ namespace guessingGame
         {
             Console.WriteLine("What's the secret number?");
 
-            int SecretNumber = new Random().Next(1, 100);
-
-
 
         }
         static void Guess()
         {
+            int SecretNumber = 45;
+
             string guess = Console.ReadLine();
             int userGuess = int.Parse(guess);
-            Console.WriteLine($"Your guess is {userGuess}");
+            // Console.WriteLine($"Your guess is {userGuess}");
+
+            if (SecretNumber == userGuess)
+            {
+                Console.WriteLine("You got it!");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that's not right.");
+            }
         }
         static void Greeting()
         {
