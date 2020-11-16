@@ -9,31 +9,37 @@ namespace guessingGame
             Console.WriteLine("Welcome to the game!");
             Console.WriteLine("---------------------------");
             Greeting();
-            ConsoleSays();
-            Guess();
-        }
-        static void ConsoleSays()
-        {
+
             Console.WriteLine("What's the secret number?");
 
-
-        }
-        static void Guess()
-        {
             int SecretNumber = 45;
+            int userTries = 0;
+            int maxTries = 3;
 
             string guess = Console.ReadLine();
             int userGuess = int.Parse(guess);
             // Console.WriteLine($"Your guess is {userGuess}");
+            while (userGuess != SecretNumber && userTries < maxTries)
+            {
+                Console.WriteLine("That's not it, bro.");
+                guess = Console.ReadLine();
 
-            if (SecretNumber == userGuess)
-            {
-                Console.WriteLine("You got it!");
+                if (userGuess == SecretNumber)
+                {
+                    Console.WriteLine("You got it!");
+                }
+                else
+                {
+                    userTries++;
+                    if (userTries == 3)
+                    {
+                        Console.WriteLine("Try again when you're feeling more lucky.");
+                    }
+                }
             }
-            else
-            {
-                Console.WriteLine("Sorry, that's not right.");
-            }
+
+
+
         }
         static void Greeting()
         {
